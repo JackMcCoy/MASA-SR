@@ -33,9 +33,9 @@ class TrainSet(Dataset):
     def __getitem__(self, idx):
         if random.random() < 0.5:
             HR = cv2.imread(self.input_list[idx])
-            Ref = cv2.imread(self.ref_list[0])
+            Ref = cv2.imread(self.ref_list[idx])
         else:
-            HR = cv2.imread(self.ref_list[0])
+            HR = cv2.imread(self.ref_list[idx])
             Ref = cv2.imread(self.input_list[idx])
 
         h, w, c = Ref.shape
