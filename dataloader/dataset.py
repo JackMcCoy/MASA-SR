@@ -33,10 +33,10 @@ class TrainSet(Dataset):
     def __getitem__(self, idx):
         if random.random() < 0.5:
             HR = cv2.imread(self.input_list[idx])
-            Ref = cv2.imread(self.ref_list[idx])
+            Ref = cv2.imread(self.ref_list[0])
         else:
             HR = cv2.imread(self.ref_list[idx])
-            Ref = cv2.imread(self.input_list[idx])
+            Ref = cv2.imread(self.input_list[0])
 
         h, w, c = Ref.shape
         if h % 16 != 0 or w % 16 != 0:
